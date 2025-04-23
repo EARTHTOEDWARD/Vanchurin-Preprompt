@@ -1,0 +1,158 @@
+**Vanchurin Theory Cheat Sheet** ​
+
+* * *
+
+### Core Triad of Dynamics
+
+*   **Boundary Dynamics**  
+    External inputs or environmental conditions drive the system via “boundary variables” (e.g. dataset samples in ML, sensory stimuli in biology).
+    
+    *   Timescale τᵦ (data stream, environmental change)
+        
+*   **Activation Dynamics**  
+    Fast evolution of non-trainable state variables xxx given fixed parameters qqq.
+    
+    x(t+τa) \= f(x(t), q) x(t + \\tau\_a) \\;=\\; f\\bigl(x(t),\\,q\\bigr)x(t+τa​)\=f(x(t),q)
+    *   Timescale τₐ ≪ τₗ
+        
+*   **Learning Dynamics**  
+    Slow adaptation of trainable parameters qqq (e.g. synaptic weights) via gradient flows on a loss/free-energy HHH:
+    
+    η gμν(q) q˙ν \= −∂H(x,q)∂qμ \\eta\\,g^{\\mu\\nu}(q)\\,\\dot q\_\\nu \\;=\\; -\\frac{\\partial H(x,q)}{\\partial q\_\\mu}ηgμν(q)q˙​ν​\=−∂qμ​∂H(x,q)​
+    
+    where gμνg^{\\mu\\nu}gμν is a metric on parameter space.
+    
+    *   Timescale τₗ ≫ τₐ
+        
+
+* * *
+
+### Key Mathematical Structures
+
+*   **Covariant Gradient Descent**  
+    q˙μ\=−gμν ∂νH\\dot q^\\mu=-g^{\\mu\\nu}\\,\\partial\_\\nu Hq˙​μ\=−gμν∂ν​H yields coordinate-independent learning ● (“Covariant GD”)​
+    
+*   **Dataset–Learning Duality**  
+    Composition of activation map F:u↦xF: u\\mapsto xF:u↦x and learning map G:(x,u)↦q˙G:(x,u)\\mapsto \\dot qG:(x,u)↦q˙​ gives direct
+    
+    q˙ \= G(F(u), u) \\dot q \\;=\\; G\\bigl(F(u),\\,u\\bigr)q˙​\=G(F(u),u)
+    
+    coupling data to parameter updates, leading to emergent critical fluctuations​
+    
+*   **Emergent Criticality**  
+    At _learning equilibrium_ (⟨q˙⟩\=0\\langle\\dot q\\rangle=0⟨q˙​⟩\=0), weight-change magnitudes follow a power-law
+    
+    P(∣Δq∣\=s)∝s−α P(|\\Delta q|=s)\\propto s^{-\\alpha}P(∣Δq∣\=s)∝s−α
+    
+    tunable by activation/loss choice (e.g. α≈1/2\\alpha\\approx1/2α≈1/2 for “efficient learning” regime)​
+    
+*   **Geometric Regimes**  
+    Power-law exponent aaa in metric–noise relation g∝κag\\propto\\kappa^ag∝κa yields three regimes:
+    
+    1.  _Quantum-like_ a\=1a=1a\=1
+        
+    2.  _Critical/efficient_ a\=1/2a=1/2a\=1/2
+        
+    3.  _Classical_ a\=0a=0a\=0  
+        with highest complexity at a\=1/2a=1/2a\=1/2​
+        
+
+* * *
+
+### Canonical Sources
+
+*   **Molecular Learning Dynamics** (Gusev & Vanchurin, 2025) – Learning in particle systems as interacting agents.
+    
+*   **Covariant Gradient Descent** (Guskov & Vanchurin, 2025) – Geometric formulation of learning rules.
+    
+*   **Emergent Field Theories from Neural Networks** (Vanchurin, 2024) – Physics analogies in network dynamics.
+    
+*   **Dataset–Learning Duality & Emergent Criticality** (Kukleva & Vanchurin, 2024) – Power laws in learning.
+    
+*   **Quasi-Equilibrium & Phase Transitions** (Romanenko & Vanchurin, 2024) – Phase-transition analogies in biology.
+    
+*   **Bio-Inspired ML: Programmed Death & Replication** (Grabovsky & Vanchurin, 2023) – Biological motifs in learning.
+    
+*   **Autonomous Particles** (Andrejic & Vanchurin, 2023) – Agents as self-organizing particles.
+    
+*   **Emergent Scale Invariance** (Katsnelson, Vanchurin & Westerhout, 2023) – Criticality in network scale.
+    
+*   **Partition Function Dualities** (Vanchurin, 2022) – Statistical mechanics of learning.
+    
+*   **Multilevel Learning Theory** (Vanchurin et al., 2021) – Evolution as hierarchical learning.
+    
+
+* * *
+
+### Practical Implications
+
+*   **Fast–Slow Separation** enables analytic approximations (adiabatic elimination of xxx before updating qqq).
+    
+*   **Critical Tuning** of hyperparameters (e.g. learning rate, activation nonlinearity) can position the system at edge-of-chaos for maximal adaptability.
+    
+*   **Unified Physics–Learning View** suggests physical laws may emerge as special cases of learning equilibria.
+    
+
+* * *
+
+### Cheat-Sheet Summary
+
+Aspect
+
+Vanchurin Theory
+
+Formula / Concept
+
+**Boundary/Blanket**
+
+Dataset ↔ Environment
+
+External input uuu driving xxx
+
+**Activation / Horizontal**
+
+Fast state propagation
+
+x↦f(x;q)x\\mapsto f(x; q)x↦f(x;q)
+
+**Learning / Vertical**
+
+Slow parameter updates
+
+q˙\=−∇qH(x,q)\\dot q=-\\nabla\_q H(x,q)q˙​\=−∇q​H(x,q)
+
+**Hyper-morphism**
+
+Data→Param duality mapping
+
+q˙\=G ⁣∘F(u)\\dot q=G\\!\\circ F(u)q˙​\=G∘F(u)
+
+**Strange Attractor**
+
+Emergent criticality
+
+Power-law fluctuations at equilibrium
+
+**Geometric Regimes**
+
+Quantum↔Critical↔Classical
+
+Exponent a\=1a=1a\=1, 1/21/21/2, 000
+
+* * *
+
+**Usage Guide**
+
+*   Identify **boundary variables** in your system (data, environment parameters).
+    
+*   Write down **activation map** xt+1\=f(xt;qt)x\_{t+1}=f(x\_t; q\_t)xt+1​\=f(xt​;qt​).
+    
+*   Specify **learning rule** q˙\=−∇qH\\dot q=-\\nabla\_q Hq˙​\=−∇q​H and metric ggg.
+    
+*   Check for **critical statistics** (power-law tails, Lyapunov exponents ≈ 0).
+    
+*   Tune hyperparameters to the **efficient learning regime** (a≈1/2a\\approx1/2a≈1/2) for scale-free adaptability.
+    
+
+* * *
+
